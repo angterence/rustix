@@ -158,6 +158,7 @@ use crate::net::xdp::{XdpMmapOffsets, XdpOptionsFlags, XdpStatistics, XdpUmemReg
     target_os = "haiku",
     target_os = "netbsd",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "vita",
 )))]
 use crate::net::AddressFamily;
@@ -580,6 +581,7 @@ pub fn socket_send_buffer_size<Fd: AsFd>(fd: Fd) -> io::Result<usize> {
     target_os = "hurd",
     target_os = "netbsd",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "vita",
 )))]
 #[inline]
@@ -1211,6 +1213,7 @@ pub fn set_ipv6_drop_membership<Fd: AsFd>(
     target_os = "fuchsia",
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_env = "newlib"
 ))]
 #[inline]
@@ -1231,6 +1234,7 @@ pub fn set_ip_tos<Fd: AsFd>(fd: Fd, value: u8) -> io::Result<()> {
     target_os = "fuchsia",
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_env = "newlib"
 ))]
 #[inline]
@@ -1285,7 +1289,8 @@ pub fn ip_recvtos<Fd: AsFd>(fd: Fd) -> io::Result<bool> {
     linux_like,
     target_os = "aix",
     target_os = "fuchsia",
-    target_os = "nto"
+    target_os = "nto",
+    target_os = "qnx",
 ))]
 #[inline]
 #[doc(alias = "IPV6_RECVTCLASS")]
@@ -1303,7 +1308,8 @@ pub fn set_ipv6_recvtclass<Fd: AsFd>(fd: Fd, value: bool) -> io::Result<()> {
     linux_like,
     target_os = "aix",
     target_os = "fuchsia",
-    target_os = "nto"
+    target_os = "nto",
+    target_os = "qnx",
 ))]
 #[inline]
 #[doc(alias = "IPV6_RECVTCLASS")]
@@ -1459,6 +1465,7 @@ pub fn tcp_nodelay<Fd: AsFd>(fd: Fd) -> io::Result<bool> {
 #[cfg(not(any(
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "openbsd",
     target_os = "redox"
 )))]
@@ -1476,6 +1483,7 @@ pub fn set_tcp_keepcnt<Fd: AsFd>(fd: Fd, value: u32) -> io::Result<()> {
 #[cfg(not(any(
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "openbsd",
     target_os = "redox"
 )))]
@@ -1492,7 +1500,7 @@ pub fn tcp_keepcnt<Fd: AsFd>(fd: Fd) -> io::Result<u32> {
 /// See the [module-level documentation] for more.
 ///
 /// [module-level documentation]: self#references-for-get_tcp_-and-set_tcp_-functions
-#[cfg(not(any(target_os = "haiku", target_os = "nto", target_os = "openbsd")))]
+#[cfg(not(any(target_os = "haiku", target_os = "nto", target_os = "qnx", target_os = "openbsd")))]
 #[inline]
 #[doc(alias = "TCP_KEEPIDLE")]
 pub fn set_tcp_keepidle<Fd: AsFd>(fd: Fd, value: Duration) -> io::Result<()> {
@@ -1506,7 +1514,7 @@ pub fn set_tcp_keepidle<Fd: AsFd>(fd: Fd, value: Duration) -> io::Result<()> {
 /// See the [module-level documentation] for more.
 ///
 /// [module-level documentation]: self#references-for-get_tcp_-and-set_tcp_-functions
-#[cfg(not(any(target_os = "haiku", target_os = "nto", target_os = "openbsd")))]
+#[cfg(not(any(target_os = "haiku", target_os = "nto", target_os = "qnx", target_os = "openbsd")))]
 #[inline]
 #[doc(alias = "TCP_KEEPIDLE")]
 pub fn tcp_keepidle<Fd: AsFd>(fd: Fd) -> io::Result<Duration> {
@@ -1521,6 +1529,7 @@ pub fn tcp_keepidle<Fd: AsFd>(fd: Fd) -> io::Result<Duration> {
 #[cfg(not(any(
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "openbsd",
     target_os = "redox"
 )))]
@@ -1538,6 +1547,7 @@ pub fn set_tcp_keepintvl<Fd: AsFd>(fd: Fd, value: Duration) -> io::Result<()> {
 #[cfg(not(any(
     target_os = "haiku",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "openbsd",
     target_os = "redox"
 )))]

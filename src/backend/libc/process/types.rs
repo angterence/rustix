@@ -45,6 +45,7 @@ pub enum Resource {
         target_os = "cygwin",
         target_os = "haiku",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Rss = bitcast!(c::RLIMIT_RSS),
     /// `RLIMIT_NPROC`
@@ -67,6 +68,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Locks = bitcast!(c::RLIMIT_LOCKS),
     /// `RLIMIT_SIGPENDING`
@@ -78,6 +80,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Sigpending = bitcast!(c::RLIMIT_SIGPENDING),
     /// `RLIMIT_MSGQUEUE`
@@ -89,6 +92,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Msgqueue = bitcast!(c::RLIMIT_MSGQUEUE),
     /// `RLIMIT_NICE`
@@ -100,6 +104,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Nice = bitcast!(c::RLIMIT_NICE),
     /// `RLIMIT_RTPRIO`
@@ -111,6 +116,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Rtprio = bitcast!(c::RLIMIT_RTPRIO),
     /// `RLIMIT_RTTIME`
@@ -124,6 +130,7 @@ pub enum Resource {
         target_os = "haiku",
         target_os = "hurd",
         target_os = "nto",
+        target_os = "qnx",
     )))]
     Rttime = bitcast!(c::RLIMIT_RTTIME),
 }
