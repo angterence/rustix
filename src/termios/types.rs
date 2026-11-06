@@ -79,7 +79,7 @@ impl Termios {
     ///
     /// In raw mode, input is available a byte at a time, echoing is disabled,
     /// and special terminal input and output codes are disabled.
-    #[cfg(not(any(target_os = "nto", target_os = "qnx")))]
+    #[cfg(not(any(target_os = "nto")))]
     #[doc(alias = "cfmakeraw")]
     #[inline]
     pub fn make_raw(&mut self) {
