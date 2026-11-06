@@ -490,19 +490,19 @@ pub(crate) fn set_input_speed(termios: &mut Termios, arbitrary_speed: u32) -> io
     }
 }
 
-#[cfg(not(any(target_os = "espidf", target_os = "nto", target_os = "qnx", target_os = "wasi")))]
+#[cfg(not(any(target_os = "espidf", target_os = "nto", target_os = "wasi")))]
 #[inline]
 pub(crate) fn cfmakeraw(termios: &mut Termios) {
     unsafe {
         // On AIX, cfmakeraw() has a return type of 'int' instead of 'void'.
         // If the argument 'termios' is NULL, it returns -1; otherwise, it returns 0.
         // We believe it is safe to ignore the return value.
-        #[cfg(target_os = "aix")]
+        #[cfg(any(target_os = "aix", target_os = "qnx"))]
         {
             let _ = c::cfmakeraw(as_mut_ptr(termios).cast());
         }
 
-        #[cfg(not(target_os = "aix"))]
+        #[cfg(not(any(target_os = "aix", target_os = "qnx")))]
         {
             c::cfmakeraw(as_mut_ptr(termios).cast());
         }
